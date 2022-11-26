@@ -1,0 +1,55 @@
+// Method 1
+
+    bool isRotated(string str1, string str2)
+    {
+        if(str1.size()!=str2.size()){
+            return false;
+        }
+        
+        string copy;
+        if(str2[str2.size()-2] == str1[0]){
+            copy.assign(str1);
+            for(int i=0;i<copy.size();i++){
+            copy.push_back(str1[i]);
+            copy.erase(0,1);
+            if(i==1 && copy == str2){
+                return true;
+            }
+            if(i>1){
+                 return false;
+            }
+        } 
+    }
+        else if(str1[str1.size()-2] == str2[0]){
+            copy.assign(str2);
+            for(int i=0;i<copy.size();i++){
+            copy.push_back(str2[i]);
+            copy.erase(0,1);
+            if(i==1 && copy == str1){
+                return true;
+            }
+            if(i>1){
+                 return false;
+            }
+        }
+    }
+    
+    return false;
+}
+
+
+
+// Method 2
+
+bool isRotated(string str1, string str2)
+    {
+       if(str1.length()!=str2.length())
+           return false;
+       int n=str1.length();
+       str1=str1+str1;
+       int found=str1.find(str2);
+       if(found==2||found==n-2) 
+           return true;
+       return false;
+        
+    }
