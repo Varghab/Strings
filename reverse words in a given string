@@ -1,0 +1,19 @@
+string reverseWords(string S) 
+    {
+        string copy;
+        string result;
+        int i=S.size()-1;
+        while(i>=0){
+            if(S[i]=='.'){
+                copy = copy + S[i];
+                result = result + copy;
+                copy ="";
+                
+            }else{
+                copy = S[i] + copy;
+            }
+            i--;
+        }
+        result = result+copy;
+        return result;
+    } 
