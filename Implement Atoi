@@ -1,0 +1,20 @@
+int atoi(string str) {
+        int res=0;
+        bool flag = false;
+        int i=0;
+        if(str[0]=='-') {i=1;flag=true;}
+        while(i<str.length()){
+            int temp = str[i]-'0';
+            if(temp>9||temp<0){
+                res=-1;
+                return res;
+                break;
+            }
+            else{
+                res = res * 10 + temp;
+            }
+            i++;
+        }
+        if(flag==true) return (res - (res * 2));
+        return res;
+    }
